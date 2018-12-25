@@ -6,3 +6,6 @@ class Settings():
         self.width = 1280
         self.height = 720
         self.bg_color = (0, 0, 0) #background color
+
+        #ship settings 
+        self.ship_speed_factor = .5

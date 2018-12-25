@@ -4,6 +4,7 @@ import pygame
 
 from Settings import Settings
 from Ship import Ship
+import game_functions as gf
 
 def run_game():
     #Initialize game and window
@@ -17,15 +18,9 @@ def run_game():
 
     #Start the main game loop
     while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
-
-        #redraw the screen during each pass through the loop
-        screen.fill(game_settings.bg_color)            
-        ship.blitme()
-
-        #draw the most recent screen visible
-        pygame.display.flip()
+        #check for key input
+        gf.check_events(ship)
+        ship.update()
+        gf.update_screen(game_settings, ship, screen)
 
 run_game()

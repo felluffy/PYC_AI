@@ -16,11 +16,19 @@ def run_game():
     #make a ship
     ship = Ship(screen, game_settings)
 
+    #make a group to store bullets in
+    bullets = pygame.sprite.Group()
+
+    #make a group of  aliens
+    aliens = pygame.sprite.Group()
+    gf.create_fleet(game_settings, screen, aliens, ship)
+
     #Start the main game loop
     while True:
         #check for key input
-        gf.check_events(ship)
+        gf.check_events(game_settings, ship, screen, bullets)
         ship.update()
-        gf.update_screen(game_settings, ship, screen)
+        gf.update_bullets(bullets)
+        gf.update_screen(game_settings, ship, aliens, screen, bullets)
 
 run_game()

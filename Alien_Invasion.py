@@ -28,8 +28,8 @@ def run_game():
         #check for key input
         gf.check_events(game_settings, ship, screen, bullets)
         ship.update()
-        gf.update_bullets(bullets)
-        gf.update_aliens(game_settings, aliens)
+        gf.update_bullets(game_settings, screen, bullets, aliens)
+        gf.update_aliens(game_settings, ship, aliens)
         gf.update_screen(game_settings, ship, aliens, screen, bullets)
 
 run_game()
